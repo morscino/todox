@@ -25,7 +25,7 @@ class TodoController extends Controller
         if(!$newTodo = $user->todos()->create($credentials)){
             return response()->json(['error'=>'Could not create New Todo'],500);
          } 
-
+         //return $user;
         return response()->json(['todo'=>$newTodo],201);
     }
 

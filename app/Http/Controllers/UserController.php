@@ -17,7 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+         
+          $user = JWTAuth::user();
+
+         return response()->json(compact('user'),200);
     }
 
     public function register(Request $request)
@@ -28,13 +31,13 @@ class UserController extends Controller
             'lastname'=>'required|string|max:255',
             'username'=>'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number'=> 'required|integer|unique:users',
+            'phone_number'=> 'required|unique:users',
             'password' => 'required|string|min:6',
              ]
         );
 
         if( $validator->fails()){
-            return response()->json(['error'=> $validator->errors()],400);
+            return response()->json(['error'=> $validator->errors()],200);
         }
         $user = User::create([
             'lastname'=>$request->lastname,
@@ -62,50 +65,30 @@ class UserController extends Controller
        if(!$token = auth()->attempt($credentials)){
             return response()->json(['error'=>'Invalid username or password'],501);
        }
+       $user =  auth()->user();
 
-        return response()->json(compact('token'));
+        return response()->json(compact('user','token'),200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //
