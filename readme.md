@@ -3,7 +3,7 @@
 
 Todox is a web application that can be used to manage ones todo activities, it allows a user create a profile and manage his or her todos
 
-Todox is accessible, free, easy to use mini mini web application.
+Todox is accessible, free, easy to use mini web application.
 
 ## Todox User Authentication
 
