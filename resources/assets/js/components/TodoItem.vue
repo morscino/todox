@@ -12,7 +12,8 @@
 			<div class="todo-details">{{todo.details}}</div>
 		</td>
 		<td class="col-md-3">
-			<img data-toggle="modal" v-bind:data-target="idModal" src="/images/edit.png">
+			<!-- <img data-toggle="modal" data-target="#TodoModal" src="/images/edit.png"> -->
+			<img @click="openModal"  src="/images/edit.png">
 			<img @click="deleteTodo(todo.id)" src="/images/delete.png">
 		</td>
 		<table class="date-table">
@@ -31,18 +32,18 @@
 			</tbody>
 		</table>
 		<!-- Modal -->
-		<div class="modal fade" v-bind:id="idData" tabindex="-1" role="dialog" aria-labelledby="editTodoModalLabel" aria-hidden="true">
+		<div class="modal fade"  v-bind:id = "idData" tabindex="-1" role="dialog" aria-labelledby="addTodoModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="editTodoModalLabel_todo.id">Edit {{todo.title}}</h5>
+		        <h5 class="modal-title" id="addTodoModalLabel">Edit <span class="font-italic">{{todo.title}}</span></h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
 		       		<form  @submit.prevent="editTodo(todo.id)">
-  						<!-- <h2 class="h3 mb-3 font-weight-normal text-centre">Fill The Form Below To Register</h2> -->
+  						
   						<div class="form-group">
   							
   							<input v-model="title" type="text" placeholder = "Enter Todo Title" class ="form-control" name="title" required>
@@ -64,12 +65,13 @@
   						<div class="modal-footer">
 					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					        <button type="submit" class="btn btn-primary">Save Changes</button>
-				      	</div>
+					      </div>
 					</form>
 		      </div>
 		      
 		    </div>
 		  </div>
+		 
 		</div>
 		
 	</div>
@@ -140,12 +142,17 @@
 					})
 
 				}
+			},
+			openModal(){
+				$(this.idModal).modal('show');
+				document.body.appendChild(document.getElementById(this.idData));
 			}
 		}
 	}
 </script>
 
-<style type="text/css" scoped>
+<style scoped>
+
 	.todoItem {
 		background: #f4f4f4;
 		padding: 10px 10px 5px 10px;

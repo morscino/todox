@@ -44,7 +44,7 @@ class TodoController extends Controller
              return response()->json(['error'=>'Could not get Todos'],500);
          }
 
-         return response()->json(compact('todos'));
+         return response()->json(compact('todos'),200);
     }
 
     /**

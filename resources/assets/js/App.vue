@@ -52,21 +52,21 @@ import Navbar from './components/Navbar.vue'
 <style type="text/css">
 
 	/*Font family*/
-@font-face {
-  font-family: 'poppins';
-  font-style: normal;
-  font-weight: 400;
-  src:	url('/fonts/poppins.ttf') format('truetype'), 
-		url('/fonts/poppins.woff') format('woff');
-}
+	@font-face {
+	  font-family: 'poppins';
+	  font-style: normal;
+	  font-weight: 400;
+	  src:	url('/fonts/poppins.ttf') format('truetype'), 
+			url('/fonts/poppins.woff') format('woff');
+	}
 
-@font-face {
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 400;
-  src:	url('/fonts/Rubik.ttf') format('truetype'), 
-		url('/fonts/Rubik.woff') format('woff');
-}
+	@font-face {
+	  font-family: 'Rubik';
+	  font-style: normal;
+	  font-weight: 400;
+	  src:	url('/fonts/Rubik.ttf') format('truetype'), 
+			url('/fonts/Rubik.woff') format('woff');
+	}
 	* {
 		box-sizing: border-box;
 		margin:0;
@@ -83,15 +83,15 @@ import Navbar from './components/Navbar.vue'
 		text-decoration-style: none;
 	}
 	body{
-	line-height: 1.4;
+		line-height: 1.4;
 		font-family: 'poppins' !important;
-	width: 100%;
-	min-height: 100%;
-	height: auto;
-	overflow: auto;
-	background-image:url(/images/background.jpg);
-	/*padding-bottom: 300px;*/
-	background-size: cover;
-	background-repeat:no-repeat;
-}
+		width: 100%;
+		min-height: 100%;
+		height: auto;
+		overflow: auto;
+		background-image:url(/images/background.jpg);
+		/*padding-bottom: 300px;*/
+		background-size: cover;
+		background-repeat:no-repeat;
+	}
 </style>

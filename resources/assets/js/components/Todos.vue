@@ -10,10 +10,12 @@
 					</ul>
 					
 				</div>
+
 				<table class="table ">
 					<tbody>
-						<tr v-for="todo in todos" v-bind:key="todo.id" v-on:del-todo="deleteTodo">
-							<TodoItem v-bind:todo="todo" v-on:del-todo="deleteTodo"/>
+						<tr v-for="todo in todos" v-bind:key="todo.id">
+							<TodoItem v-bind:todo="todo" />
+							
 						</tr>
 						
 					</tbody>
@@ -72,11 +74,13 @@
 <script type="text/javascript">
 	import EventBus from "./EventBus";
 	import TodoItem from './TodoItem.vue'; 
+	
 
 	export default{
 		name:"Todos",
 		components:{
 			TodoItem
+			
 		},
 		data(){
 			return{
@@ -133,16 +137,12 @@
 				//close modal
 				$('#addTodoModal').modal('hide');
 				
-			},
-			deleteTodo(id){
-				console.log(id);
-				this.init();
 			}
 		},
 		created(){
 			this.init();
 			EventBus.$on('del-todo',status =>{
-				this.deleteTodo(status);
+				this.init();
 				console.log(status);
 			});
 
